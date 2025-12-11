@@ -1,0 +1,54 @@
+# Vercel ignore file
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Testing
+tests/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Kubernetes
+k8s/
+
+# Scripts
+scripts/
+
+# Development
+.env
+*.log
+logs/
+
+# Large dependencies not needed for API
+opencv-python
+torch
+transformers
+moviepy
+kubernetes
+docker
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
