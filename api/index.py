@@ -2,15 +2,19 @@
 Vercel serverless function entry point for igbot2025
 FastAPI application for Instagram bot management
 """
+import sys
+import os
+
+# Add the parent directory to the path to allow imports
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from fastapi import FastAPI, HTTPException, Depends, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
-import asyncio
 import secrets
-import os
 from datetime import datetime
 
 # Initialize FastAPI
@@ -310,10 +314,6 @@ async def global_exception_handler(request, exc):
             "timestamp": datetime.utcnow().isoformat()
         }
     )
-
-
-# Vercel serverless handler
-handler = app
 
 
 # For local testing

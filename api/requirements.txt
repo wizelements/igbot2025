@@ -1,0 +1,4 @@
+# Minimal API dependencies for Vercel serverless
+fastapi==0.109.0
+pydantic==2.7.1
+python-multipart==0.0.6
