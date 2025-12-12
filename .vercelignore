@@ -1,9 +1,32 @@
-.git
-node_modules
-__pycache__
-*.pyc
+# Ignore frontend - it's deployed separately
+frontend/
+frontend/**/*
+
+# Git
+.git/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# Environment
 .env
 .env.local
+.env.*.local
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Backup
+*.backup
 package.json.backup
-frontend/
+
+# Node modules (if any)
+node_modules/
