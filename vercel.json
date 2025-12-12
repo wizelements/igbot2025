@@ -14,8 +14,5 @@
       "src": "/(.*)",
       "dest": "api/index.py"
     }
-  ],
-  "installCommand": "pip install -r requirements-vercel.txt",
-  "buildCommand": "echo 'Python build complete'",
-  "framework": null
+  ]
 }

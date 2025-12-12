@@ -124,13 +124,18 @@ echo -e "${BLUE}Setting frontend API URL...${NC}"
 echo "NEXT_PUBLIC_API_URL=$BACKEND_URL" > .env.production
 echo -e "${GREEN}✅ API URL configured${NC}"
 
-# Check if NEXT_PUBLIC_API_URL is set in Vercel
-echo -e "${YELLOW}Updating Vercel environment variable...${NC}"
-echo "$BACKEND_URL" | vercel env add NEXT_PUBLIC_API_URL $ENV_TYPE 2>/dev/null || echo "Variable already exists, updating..."
+# Add backend URL to Vercel env
+echo -e "${YELLOW}Setting Vercel environment variable...${NC}"
+if [ "$ENV_TYPE" == "production" ]; then
+    echo "$BACKEND_URL" | vercel env add NEXT_PUBLIC_API_URL production 2>&1 | grep -q "already exists" && echo "Updating existing variable..."
+else
+    echo "$BACKEND_URL" | vercel env add NEXT_PUBLIC_API_URL preview 2>&1 | grep -q "already exists" && echo "Updating existing variable..."
+fi
 
 # Deploy frontend
 echo ""
-echo -e "${BLUE}Deploying frontend...${NC}"
+echo -e "${BLUE}Deploying frontend as separate project...${NC}"
+echo -e "${YELLOW}Note: Frontend is a separate Vercel project${NC}"
 FRONTEND_URL=$($DEPLOY_CMD --yes 2>&1 | grep -o 'https://[^ ]*' | head -1)
 
 if [ -z "$FRONTEND_URL" ]; then
@@ -162,6 +167,8 @@ echo "╚═══════════════════════�
 echo -e "${NC}"
 echo ""
 echo "Your IGBot 2025 is now live!"
+echo ""
+echo -e "${YELLOW}IMPORTANT: Backend and Frontend are separate Vercel projects${NC}"
 echo ""
 echo -e "${BLUE}Backend API:${NC}"
 echo "  $BACKEND_URL"
