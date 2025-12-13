@@ -1,0 +1,9 @@
+{
+  "name": "igbot2025-backend",
+  "version": "1.0.0",
+  "description": "Python backend - no npm dependencies",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Python backend - no build needed'"
+  }
+}
