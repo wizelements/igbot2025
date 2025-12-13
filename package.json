@@ -1,0 +1,13 @@
+{
+  "name": "igbot2025-python-backend",
+  "version": "1.0.0",
+  "description": "Python Flask/FastAPI Backend - Not a Node.js project",
+  "private": true,
+  "scripts": {
+    "build": "./build.sh",
+    "vercel-build": "./build.sh"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
