@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "framework": null,
-  "installCommand": "pip install -r api/requirements.txt",
-  "buildCommand": "echo 'Python serverless - no build step'",
   "builds": [
     {
       "src": "api/index.py",

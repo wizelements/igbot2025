@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Python backend - no npm dependencies",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "echo 'Python backend - no build needed'"
+    "build": "echo 'Python backend uses serverless functions - no build step required' && exit 0"
+  },
+  "engines": {
+    "node": ">=18.x"
   }
 }
