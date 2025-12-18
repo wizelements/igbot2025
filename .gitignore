@@ -102,3 +102,4 @@ sessions/
 secrets.json
 credentials.json
 *-key.json
+.env*.local
