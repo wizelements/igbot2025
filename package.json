@@ -1,13 +1,32 @@
 {
-  "name": "igbot2025-python-backend",
+  "name": "igbot2025",
   "version": "1.0.0",
-  "description": "Python Flask/FastAPI Backend - Not a Node.js project",
+  "description": "IGBot 2025 - Instagram Bot with Dashboard",
   "private": true,
   "scripts": {
-    "build": "./build.sh",
-    "vercel-build": "./build.sh"
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run dev",
+    "start": "cd frontend && npm start",
+    "lint": "cd frontend && npm run lint",
+    "type-check": "cd frontend && npm run type-check",
+    "format": "cd frontend && npm run format",
+    "vercel-build": "cd frontend && npm install && npm run build",
+    "test": "echo 'No tests configured yet'"
   },
   "engines": {
-    "node": "20.x"
-  }
+    "node": "20.x",
+    "npm": ">=10.0.0"
+  },
+  "workspaces": [
+    "frontend",
+    "api"
+  ],
+  "keywords": [
+    "instagram",
+    "automation",
+    "bot",
+    "dashboard",
+    "nextjs",
+    "fastapi"
+  ]
 }
