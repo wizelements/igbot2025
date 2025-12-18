@@ -1,11 +1,18 @@
-# Ignore frontend - it's deployed separately
-frontend/
-frontend/**/*
+# Do NOT ignore frontend - we need it for the Next.js build!
+# frontend/ is the main application being deployed
 
 # Git
 .git/
+.github/
 
-# Python
+# Documentation files
+*.md
+README.md
+
+# API (handled separately if needed)
+# api/ - Keep this if building Python backend
+
+# Python cache and build artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,19 +21,34 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+.venv/
+venv/
 
-# Environment
+# Environment files (keep secrets out)
 .env
 .env.local
 .env.*.local
+
+# Development
+node_modules/
+frontend/node_modules/.cache/
+frontend/.next/cache/
+.next/cache/
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Backup
+# Backup and logs
 *.backup
-package.json.backup
+*.log
+npm-debug.log*
 
-# Node modules (if any)
-node_modules/
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Testing
+.coverage/
+htmlcov/
