@@ -117,6 +117,17 @@ async def health_check():
     )
 
 
+@app.get("/debug/env")
+async def debug_env():
+    """Debug endpoint to check env vars (remove in production)"""
+    return {
+        "has_username": bool(os.getenv("DASHBOARD_USERNAME")),
+        "has_password": bool(os.getenv("DASHBOARD_PASSWORD")),
+        "username_len": len(os.getenv("DASHBOARD_USERNAME", "")),
+        "password_len": len(os.getenv("DASHBOARD_PASSWORD", "")),
+    }
+
+
 @app.get("/api/status")
 async def get_status(username: str = Depends(verify_credentials)):
     """Get bot fleet status"""
